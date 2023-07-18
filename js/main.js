@@ -5,6 +5,8 @@ $(document).ready(function(){
       } else {
         console.log('Moment.js no está cargado correctamente');
       }
+
+      if(window.location.href.indexOf('index')> -1){
     //Slider 
 
     $('.galeria').bxSlider({
@@ -13,9 +15,9 @@ $(document).ready(function(){
         slideWidth: 1200, 
         pager: true
       });
-
+    };
       //Post
-
+      if(window.location.href.indexOf('index')> -1){
       var posts = [
         {
             title: "Prueba de titulo 1",
@@ -57,6 +59,8 @@ $(document).ready(function(){
 
  $("#posts").append(post);
  });
+
+}
 
  //Selectorr de tema
 
@@ -113,8 +117,26 @@ if (form_name != null && form_name != "undefined") {
   localStorage.clear();
  location.reload();
 
- })
-}
+ });
+};
+
+//Acordeón
+
+if(window.location.href.indexOf('about')> -1){
+$("#acordeon").accordion();
+};
+
+//Reloj
+
+if(window.location.href.indexOf('reloj')> -1){
+  setInterval(function(){
+    var fecha =  "Hoy es " + moment().format("D") + " de " + moment().format("MMMM YYYY") + "<br>";
+    var reloj  = moment().format("hh:mm:ss");
+    $("#fecha").html(fecha);
+    $("#reloj").html(reloj);
+  }, 1000);
+
+  };
 
 
 });
